@@ -25,6 +25,13 @@
 
     <%= submit_tag "Create User" %>
 <% end %> -->
+<% if @user.errors.any? %>
+    <ul>
+        <% @user.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+<% end %>
 
 <%= form_with model: @user do |f| %>
     <%= f.label :username, "Your username" %>
